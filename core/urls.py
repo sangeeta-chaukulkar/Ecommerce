@@ -25,7 +25,7 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(template_name='core/login.html',authentication_form=LoginForm), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),  
     path('passwordchange/',auth_views.PasswordChangeView.as_view(template_name='core/passwordchange.html',form_class=MyPasswordChangeForm,success_url='/passwordchangedone/'),name='passwordchange'),
-    path('passwordchanedone/',auth_views.PasswordChangeDoneView.as_view(template_name='core/passwordchangedone.html'),name='passwordchangedone'),
+    path('passwordchangedone/',auth_views.PasswordChangeDoneView.as_view(template_name='core/passwordchangedone.html'),name='passwordchangedone'),
 
     path('password-reset/',auth_views.PasswordResetView.as_view(template_name='core/password_reset.html',form_class=MyPasswordResetForm),name='password_reset'),
     path('password-reset/done/',auth_views.PasswordResetDoneView.as_view(template_name='core/password_reset_done.html'),name='password_reset_done'),
