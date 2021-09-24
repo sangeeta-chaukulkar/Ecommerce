@@ -10,7 +10,8 @@
   <div class="col-sm-5 offset-sm-1">
    <h2>Product Title: {{product.title}}</h2>
    <hr>
-   <p> {{product.description}} </p> <br>
+   <pre><span class="fs-5"> {{ product.description }}</span></pre>
+   <!-- <p> {{product.description}} </p> <br> -->
    
    <h4>Rs. {{product.discounted_price}} <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></h4> <br>
    {% if request.user.is_authenticated %}  
