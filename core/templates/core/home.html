@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+<!--
+ <div id="carouselExampleControls" class="carousel slide owlCarousel" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'core/images/banner/a.png' %}" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'core/images/banner/b.png' %}"  alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'core/images/banner/c.png' %}"  alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'core/images/banner/d.png' %}" class=" d-block w-10 " alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div> -->
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block livesale %}
+{% endblock livesale %}
+
+{% block main-content %}
+
+<div class="mx-3">
+  <h2>Mobiles</h2>
+  <div  id="slider3">
+   {% for b in mobiles %}
+   <a href="{% url 'product-detail' b.id %}" class="btn"><div class="item">
+     <img src="{{b.product_image.url}}" alt="" height="200px"><br>
+     <span class="fw-bold">{{ b.title }}</span><br>
+     <span class="fs-5">{{ b.discounted_price }}</span></div></a>
+   {% endfor %}
+  </div>
+</div>
+
+<div class="mx-3">
+  <h2>Laptops</h2>
+  <div  id="slider3">
+   {% for b in laptops %}
+   <a href="{% url 'product-detail' b.id %}" class="btn"><div class="item">
+     <img src="{{b.product_image.url}}" alt="" height="200px"><br>
+     <span class="fw-bold">{{ b.title }}</span><br>
+     <span class="fs-5">{{ b.discounted_price }}</span></div></a>
+   {% endfor %}
+  </div>
+</div>
+
+{% endblock main-content %}

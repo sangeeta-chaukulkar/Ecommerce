@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Mobile{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-2">
+      <div class="list-group">
+          <a href="{% url 'mobile' %}" class="list=group-item list=group-item-action" aria_current="true">All mobiles</a>  
+          <a href="{% url 'mobiledata' 'Redmi' %}" class="list=group-item list=group-item-action" aria_current="true">Redmi</a> 
+          <a href="{% url 'mobiledata' 'samsung' %}" class="list=group-item list=group-item-action" aria_current="true">Samsung</a> 
+          <a href="{% url 'mobiledata' 'below' %}" class="list=group-item list=group-item-action" aria_current="true">Below</a> 
+          <a href="{% url 'mobiledata' 'above' %}" class="list=group-item list=group-item-action" aria_current="true">Above</a> 
+      </div>  
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+      <div class="row">
+        {% for product in mobiles %}
+        <div class="col-sm-3 text-center">
+        <a href="{% url 'product-detail' product.id %}" class="btn"> 
+            <div class="item"><img src="{{product.product_image.url}}" alt="" height="200px"><br>
+                <span class="fw-bold">{{ product.title }}</span><br>
+                <span class="fs-5"> {{ product.discounted_price }}</span><br>
+                <span class="fs-5 text-decoration-line-through"> {{ product.selling_price }}</span>  
+            </div>
+        </a>
+        
+        </div>
+        {% endfor %}
+      </div>
+
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
